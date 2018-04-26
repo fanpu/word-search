@@ -14,3 +14,10 @@ main = hspec $ do
       findWord grid "PERL" `shouldBe` Just "PERL"
     it "Should not find words that do not exist on the Grid" $ do
       findWord grid "HAMSTER" `shouldBe` Nothing
+
+  describe "findWords" $ do
+    it "Should find all the words that exist on the Grid" $ do
+      findWords grid languages `shouldBe` languages
+
+    it "Should not find words that do not exist on the Grid" $ do
+      findWords grid ["FRENCH", "GERMAN", "ENGLISH"] `shouldBe` []
